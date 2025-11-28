@@ -14,19 +14,19 @@ echo "Generated UUID: $UUID"
 ##########################################
 
 # --- 哪吒（已填写） ---
-export NEZHA_SERVER="cc.sssss.qzz.io:80"
-export NEZHA_KEY="T4RbI87SfRzp2ZYCLuoXra58Z8hrJtPe"
+export NEZHA_SERVER="z.kkkk.hidns.co:80"
+export NEZHA_KEY="ZPRVZUoCu50Wz0ZiL4mSf2zZelRDh1K5"
 
 # --- 固定隧道（已填写） ---
-export ARGO_DOMAIN="idx.xlm.xx.kg"
-export ARGO_AUTH="eyJhIjoiNzU4ZTRhMjEyNDE1NjM0NThiYWY3YmYxZDBmMDI0NWQiLCJ0IjoiMzExOGMwZjItNGM0MC00MGFmLWE0OWEtNjliYTJjYmVmZTRhIiwicyI6Ik5qbG1PVGsyTUdJdE56UTFaUzAwWVRCakxUazFaamd0T0dNd1pETTBPREl3TjJNMyJ9"
+export ARGO_DOMAIN=""
+export ARGO_AUTH=""
 
 # --- 其他配置（保留） ---
 export NAME="idx"
 export CFIP="www.visa.com.tw"
 export CFPORT=443
-export CHAT_ID=""
-export BOT_TOKEN=""
+export CHAT_ID="7886284400"
+export BOT_TOKEN="7669258945:AAGNTd8625Oy6h3oWN8en1EfDn2ZY0BjpHc"
 export UPLOAD_URL=
 
 
