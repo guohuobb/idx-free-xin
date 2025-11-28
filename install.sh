@@ -18,8 +18,8 @@ export NEZHA_SERVER="cc.sssss.qzz.io:80"
 export NEZHA_KEY="T4RbI87SfRzp2ZYCLuoXra58Z8hrJtPe"
 
 # --- 固定隧道（已填写） ---
-export ARGO_DOMAIN="xccc.6.d.8.b.0.d.0.0.1.0.a.2.ip6.arpa"
-export ARGO_AUTH="eyJhIjoiNTY2M2Q3YmY0M2NmZGU1MDYzMjhmNjZmMDJmM2RhMDAiLCJ0IjoiZTE3ZWI4ZGYtNWY4Mi00MzdmLWJiN2YtODNlODhiM2FhMjRmIiwicyI6Ik5qWmlNREF4WVRVdFpXRTVOaTAwT0dGaExXSXlPV1l0TlRoaU1HWmlNMk14WWpZdyJ9"
+export ARGO_DOMAIN="idx.xlm.xx.kg"
+export ARGO_AUTH="eyJhIjoiNzU4ZTRhMjEyNDE1NjM0NThiYWY3YmYxZDBmMDI0NWQiLCJ0IjoiMzExOGMwZjItNGM0MC00MGFmLWE0OWEtNjliYTJjYmVmZTRhIiwicyI6Ik5qbG1PVGsyTUdJdE56UTFaUzAwWVRCakxUazFaamd0T0dNd1pETTBPREl3TjJNMyJ9"
 
 # --- 其他配置（保留） ---
 export NAME="idx"
