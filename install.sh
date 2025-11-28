@@ -21,8 +21,8 @@ export ARGO_AUTH="eyJhIjoiNzU4ZTRhMjEyNDE1NjM0NThiYWY3YmYxZDBmMDI0NWQiLCJ0IjoiNz
 export NAME="idx"               # 节点名称
 export CFIP="www.visa.com.tw" # 优选 IP 或优选域名
 export CFPORT=443               # 优选 IP 或优选域名对应端口
-export CHAT_ID="Nzg4NjI4NDQwMA=="               # Telegram Chat ID
-export BOT_TOKEN="NzY2OTI1ODk0NTpBQUdOVGQ4NjI1T3k2aDNvV044ZW4xRWZEbjJaWTBCanBIYw=="             # Telegram Bot Token。需要同时填写 Chat ID 才会推送节点到 Telegram
+export CHAT_ID="7886284400"               # Telegram Chat ID
+export BOT_TOKEN="7669258945:AAGNTd8625Oy6h3oWN8en1EfDn2ZY0BjpHc"             # Telegram Bot Token。需要同时填写 Chat ID 才会推送节点到 Telegram
 export UPLOAD_URL=              # 节点自动推送到订阅器，需要填写部署 merge-sub 项目后的首页地址，例如：https://merge.eooce.ggff.net
 
 # --- 执行主部署脚本 ---
