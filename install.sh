@@ -1,76 +1,30 @@
 #!/bin/bash
 
-##########################################
-# 1. 安装 UUID 依赖并生成 UUID
-##########################################
-
 npm install uuid
+
+# 使用 Node.js 脚本生成 UUID 并赋值给环境变量
 export UUID=$(node -e "const { v4: uuidv4 } = require('uuid'); console.log(uuidv4());")
+
+# 调试输出：确认 UUID 已生成
 echo "Generated UUID: $UUID"
 
+# --- 哪吒探针配置 ---
+export NEZHA_SERVER="z.kkkk.hidns.co:80"          # 哪吒面板域名。v1 填写形式：nezha.xxx.com:8008；v0 填写形式：nezha.xxx.com
+export NEZHA_PORT=""            # v1 哪吒不要填写这个。v0 哪吒 agent 端口，端口为 {443, 8443, 2096, 2087, 2083, 2053} 之一时开启 TLS
+export NEZHA_KEY="ZPRVZUoCu50Wz0ZiL4mSf2zZelRDh1K5"             # v1 哪吒的 NZ_CLIENT_SECRET 或 v0 哪吒 agent 密钥
 
-##########################################
-# 2. 哪吒参数 + 固定隧道参数（已为你填好）
-##########################################
+# --- Argo 隧道配置 ---
+export ARGO_DOMAIN=""           # Argo 域名，留空即启用临时隧道
+export ARGO_AUTH=""             # Argo Token 或 json，留空即启用临时隧道
 
-# --- 哪吒（已填写） ---
-export NEZHA_SERVER="z.kkkk.hidns.co:80"
-export NEZHA_KEY="ZPRVZUoCu50Wz0ZiL4mSf2zZelRDh1K5"
+# --- 其他配置 ---
+export NAME="idx"               # 节点名称
+export CFIP="www.visa.com.tw" # 优选 IP 或优选域名
+export CFPORT=443               # 优选 IP 或优选域名对应端口
+export CHAT_ID="7886284400"               # Telegram Chat ID
+export BOT_TOKEN="7669258945:AAGNTd8625Oy6h3oWN8en1EfDn2ZY0BjpHc"             # Telegram Bot Token。需要同时填写 Chat ID 才会推送节点到 Telegram
+export UPLOAD_URL=              # 节点自动推送到订阅器，需要填写部署 merge-sub 项目后的首页地址，例如：https://merge.eooce.ggff.net
 
-# --- 固定隧道（已填写） ---
-export ARGO_DOMAIN=""
-export ARGO_AUTH=""
-
-# --- 其他配置（保留） ---
-export NAME="idx"
-export CFIP="www.visa.com.tw"
-export CFPORT=443
-export CHAT_ID="7886284400"
-export BOT_TOKEN="7669258945:AAGNTd8625Oy6h3oWN8en1EfDn2ZY0BjpHc"
-export UPLOAD_URL=
-
-
-##########################################
-# 3. 启动固定 Argo 隧道
-##########################################
-
-if [[ -n "$ARGO_AUTH" ]]; then
-    echo "==== 安装 cloudflared ===="
-    wget -O cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
-    chmod +x cloudflared
-
-    echo "==== 启动固定 Argo 隧道 ===="
-    nohup ./cloudflared tunnel run --token "$ARGO_AUTH" >/dev/null 2>&1 &
-
-    sleep 2
-    echo "Argo 隧道已后台运行"
-else
-    echo "未配置 ARGO_AUTH，跳过固定隧道"
-fi
-
-
-##########################################
-# 4. 启动哪吒探针
-##########################################
-
-if [[ -n "$NEZHA_SERVER" && -n "$NEZHA_KEY" ]]; then
-    echo "==== 安装哪吒探针 ===="
-    wget -O nezha-agent https://github.com/nezhahq/agent/releases/latest/download/nezha-agent_linux_amd64
-    chmod +x nezha-agent
-
-    echo "==== 启动哪吒探针 ===="
-    nohup ./nezha-agent -s "$NEZHA_SERVER" -p "$NEZHA_KEY" >/dev/null 2>&1 &
-
-    sleep 2
-    echo "哪吒探针已后台运行"
-else
-    echo "未填写哪吒参数，跳过启动"
-fi
-
-
-##########################################
-# 5. 执行主 sb.sh 节点脚本
-##########################################
-
-echo "==== 开始执行主 sb.sh 部署脚本 ===="
+# --- 执行主部署脚本 ---
+# 这会下载并执行远程的 sb.sh 脚本，并使用上面设置的环境变量
 bash <(curl -Ls https://main.ssss.nyc.mn/sb.sh)
